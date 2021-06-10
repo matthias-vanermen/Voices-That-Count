@@ -167,7 +167,9 @@ const mainMenuTemplate = [
 // If mac, add empty object to menu and set menu
 if(process.platform == 'darwin'){
   mainMenuTemplate.unshift({});
-  Menu.setApplicationMenu(mainMenu);
+  //build menu from template
+  const macMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  Menu.setApplicationMenu(macMenu);
 }
 
 // Add develop tools
