@@ -11,27 +11,30 @@
 </head>
 <body>
     <form action="">
-        <label for="row">Geef het aantal rows op dat de grafiek moet zijn:</label><br>
+        <label for="row">Give the number of rows the graph has to be:</label><br>
         <input type="text" id="row" name="row"><br> 
-        <label for="column">Geef het aantal columns op dat de grafiek moet zijn:</label><br>
+        <label for="column">Give the number of columns the graph has to be:</label><br>
         <input type="text" id="column" name="column"><br>
-        <label for="columnspan">Geef het aantal column spans op dat de grafiek moet zijn:</label> <br>
+        <label for="columnspan">Give the number of column spans the graph has to be:</label> <br>
         <input type="text" id="columnspan" name="columnspan"><br>
-        <label for="title">Geef de titel van de grafiek op:</label><br>
+        <label for="title">Give the title of the graph:</label><br>
         <input type="text" id="title" name="title"><br>
-        <label for="icon">Geef de icoon naam op:</label><br>
+        <label for="icon">Give the icon name:</label><br>
         <input type="text" id="icon" name="icon"><br>
-        <label for="colorIcon">Kleur van icoon (in hexadecimaal):</label><br>
+        <label for="colorIcon">Color of the icon (in hexadecimal):</label><br>
         <input type="text" id="colorIcon" name="colorIcon" value="0000ff"><br>
         <br><br><br>
+        
         <div id="itemDemographic">
             <label for="item1"></label>
-            <label for="datafield">Geef de kolom uit het databestand:</label><br>
+            <label for="datafield">Give the colum name from the data file:</label><br>
             <input type="text" id="datafield" name="datafield"><br>
-            <label for="name">Geef de naam op die op het dashboard word getoond:</label><br>
+            <label for="name">Give the name that is displayed on the dashboard:</label><br>
             <input type="text" id="name" name="name"><br>
-            <button onclick="addItem()">Item aanmaken</button>
+            <button onclick="addItem()">Make item</button>
         </div>
+        <br><br>
+        <button onclick="makeDemographicGraph()">Make graph</button>
     </form>
 </body>
 </html>

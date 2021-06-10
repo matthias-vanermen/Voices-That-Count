@@ -9,30 +9,34 @@
 </head>
 <body>
     <form action="">
-        <label for="row">Geef het aantal rows op dat de grafiek moet zijn:</label><br>
+        <label for="row">Give the number of rows the graph has to be:</label><br>
         <input type="text" id="row" name="row"><br> 
-        <label for="column">Geef het aantal columns op dat de grafiek moet zijn:</label><br>
+        <label for="column">Give the number of columns the graph has to be:</label><br>
         <input type="text" id="column" name="column"><br>
-        <label for="columnspan">Geef het aantal column spans op dat de grafiek moet zijn:</label> <br>
+        <label for="columnspan">Give the number of column spans the graph has to be:</label> <br>
         <input type="text" id="columnspan" name="columnspan"><br>
-        <label for="title">Geef de titel van de grafiek op:</label><br>
+        <label for="title">Give the title of the graph:</label><br>
         <input type="text" id="title" name="title"><br>
-        <label for="icon">Geef de icoon naam op:</label><br>
+        <label for="icon">Give the icon name:</label><br>
         <input type="text" id="icon" name="icon"><br>
-        <label for="colorIcon">Kleur van icoon (in hexadecimaal):</label><br>
+        <label for="colorIcon">Color of the icon (in hexadecimal):</label><br>
         <input type="text" id="colorIcon" name="colorIcon" value="0000ff"><br>
-        <label for="city">Kolomnaam van kolom die gemeente bevat:</label><br>
+        <br><br><br>
+        
+        <label for="city">Colum name of the colum that contains the city:</label><br>
         <input type="text" id="city" name="city"><br>
-        <label for="street">Kolomnaam van kolom die straatnaam bevat:</label><br>
+        <label for="street">Colum name of the colum that contains the street:</label><br>
         <input type="text" id="street" name="street"><br>
-        <label for="pae">Kolomnaam van kolom voor "PAE":</label><br>
+        <label for="pae">Colum name of the colum "PAE":</label><br>
         <input type="text" id="pae" name="pae"><br>
-        <label for="modelsplitmotorized">Kolomnaam van kolom voor "modal split gemotoriseerd"</label><br>
+        <label for="modelsplitmotorized">Colum name of the colum "modal split motorized"</label><br>
         <input type="text" id="modelsplitmotorized" name="modelsplitmotorized"><br>
-        <label for="roadcategory">Kolomnaam voor kolom die wegcategorie bevat:</label><br>
+        <label for="roadcategory">Colum name of the colum that contains roadcategory:</label><br>
         <input type="text" id="roadcategory" name="roadcategory"><br>
-        <label for="nodata">Tekst die getoond word wanneer er geen data is:</label><br>
+        <label for="nodata">Text that is displayed when no data is avaible:</label><br>
         <input type="text" id="nodata" name="nodata"><br>
+        <br><br>
+        <button onclick="makeTrafficGraph()">Make graph</button>
     </form>
 </body>
 </html>
