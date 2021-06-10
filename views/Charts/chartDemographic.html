@@ -5,13 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demographic chart</title>
+    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 </head>
 <body>
     <form action="">
-        <label for="test">Demographic:</label><br>
-        <input type="text" id="test" name="test"><br>
-        <label for="test2">Test2:</label><br>
-        <input type="radio" id="test2" name="test2" value="test2">
+        <label for="row">Geef het aantal rows op dat de grafiek moet zijn:</label><br>
+        <input type="text" id="row" name="row"><br> 
+        <label for="column">Geef het aantal columns op dat de grafiek moet zijn:</label><br>
+        <input type="text" id="column" name="column"><br>
+        <label for="columnspan">Geef het aantal column spans op dat de grafiek moet zijn:</label> <br>
+        <input type="text" id="columnspan" name="columnspan"><br>
+        <label for="title">Geef de titel van de grafiek op:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="icon">Geef de icoon naam op:</label><br>
+        <input type="text" id="icon" name="icon"><br>
+        <label for="colorIcon">Kleur van icoon (in hexadecimaal):</label><br>
+        <input type="text" id="colorIcon" name="colorIcon" value="0000ff"><br>
+        <br><br><br>
+        <div id="itemDemographic">
+            <label for="item1"></label>
+            <label for="datafield">Geef de kolom uit het databestand:</label><br>
+            <input type="text" id="datafield" name="datafield"><br>
+            <label for="name">Geef de naam op die op het dashboard word getoond:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <button onclick="addItem()">Item aanmaken</button>
+        </div>
     </form>
 </body>
 </html>
