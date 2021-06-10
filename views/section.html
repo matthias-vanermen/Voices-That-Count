@@ -8,10 +8,18 @@
 </head>
 <body>
     <form action="">
-        <label for="test">section:</label><br>
-        <input type="text" id="test" name="test"><br>
-        <label for="test2">Test2:</label><br>
-        <input type="radio" id="test2" name="test2" value="test2">
+        <label for="title">Title (keywords:{{count}} wordt vervangen door totaal aantal gefilterde verhalen,{{newline}} vervolg van de tekst wordt op nieuwe lijn getoond, [[kolomnaam]] wordt vervangen door waarde van corresponderende kolom):</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="backgroundcolor">Backgroundcolor:</label><br>
+        <input type="text" id="backgroundcolor" name="backgroundcolor"><br>
+        <label for="textcolor">Text color:</label><br>
+        <input type="text" id="textcolor" name="textcolor"><br>
+        <label for="textsize">Text size (size of text, standard 1.75 rem):</label><br>
+        <input type="text" id="textsize" name="textsize"><br>
+        <label for="textalign">Text Align (left, center or right):</label>
+        <input type="text" id="textalign" name="textalign"><br>
+        <br><br>
+        <button onclick="makeSection()">Make section</button>
     </form>
 </body>
 </html>
