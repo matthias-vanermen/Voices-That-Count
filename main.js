@@ -20,6 +20,9 @@ function createMainWindow () {
   const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
   //Insert menu
   win.setMenu(mainMenu);
+  if(process.platform == 'darwin'){
+    Menu.setApplicationMenu(mainMenu);
+  }
 }
 
 function createWindow (pathHtml) {
