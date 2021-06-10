@@ -15,6 +15,11 @@ function createMainWindow () {
   win.on('closed', function(){
     app.quit();
   })
+
+  //build menu from template
+  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  //Insert menu
+  win.setMenu(mainMenu);
 }
 
 function createWindow (pathHtml) {
@@ -31,6 +36,9 @@ function createWindow (pathHtml) {
   win.on('close', function(){
     win = null;
   })
+
+  // Remove menu bar
+  win.setMenu(null)
 }
 
 // This method will be called when Electron has finished
@@ -38,10 +46,6 @@ function createWindow (pathHtml) {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createMainWindow()
-  //build menu from template
-  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
-  //Insert menu
-  Menu.setApplicationMenu(mainMenu);
   
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
@@ -73,7 +77,7 @@ const mainMenuTemplate = [
         label: 'Demographic Chart',
         click(){
           // Create Demographic Chart
-          createWindow('views/Charts/chartDemograpic.html');
+          createWindow('views/Charts/chartDemographic.html');
         }
       },
       {
