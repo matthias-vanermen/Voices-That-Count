@@ -1,13 +1,13 @@
 class Section {
   constructor(
-    char_List,
+    chartList,
     title,
     backgroundcolor,
     textcolor,
     textsize,
     textalign
   ) {
-    this.char_List = char_List;
+    this.chartList = chartList;
     this.title = title;
     this.backgroundcolor = backgroundcolor;
     this.textcolor = textcolor;
@@ -51,17 +51,17 @@ class Section {
   }
 
   addChart(chart) {
-    this.char_List.push(chart);
+    this.chartList.push(chart);
   }
 
   getCharts() {
-    return this.char_List;
+    return this.chartList;
   }
 
   deleteChart(chart) {
-    for (var i = 0; i < this.char_List.length; i++) {
-      if (this.char_List[i] == chart) {
-        this.char_List.splice(i, 1);
+    for (var i = 0; i < this.chartList.length; i++) {
+      if (this.chartList[i] == chart) {
+        this.chartList.splice(i, 1);
         i--;
       }
     }
