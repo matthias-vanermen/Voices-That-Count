@@ -40,7 +40,7 @@ function createTabWindow(){
     })
   
     // and load the index.html of the app.
-    win.loadFile('tab.html')
+    win.loadFile('views/tab.html')
 }
 
 //Handle create section
@@ -52,7 +52,7 @@ function createSectionWindow(){
   })
 
   // and load the index.html of the app.
-  win.loadFile('section.html')
+  win.loadFile('views/section.html')
 }
 
 // Create menu template
