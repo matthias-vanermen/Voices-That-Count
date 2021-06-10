@@ -19,7 +19,7 @@ function createMainWindow () {
   })
 
   //build menu from template
-  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  var mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
   //Insert menu
   win.setMenu(mainMenu);
 }
@@ -57,7 +57,7 @@ app.whenReady().then(() => {
 })
 
 // Create menu template
-const mainMenuTemplate = [
+var mainMenuTemplate = [
   {
     label:'Tab maken',
     click(){
@@ -168,7 +168,7 @@ const mainMenuTemplate = [
 if(process.platform == 'darwin'){
   mainMenuTemplate.unshift({});
   //build menu from template
-  const macMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  var macMenu = Menu.buildFromTemplate(mainMenuTemplate);
   Menu.setApplicationMenu(macMenu);
 }
 
