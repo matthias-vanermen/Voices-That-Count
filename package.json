@@ -13,6 +13,7 @@
     "electron": "^13.1.2"
   },
   "dependencies": {
-    "bootstrap": "^5.0.1"
+    "bootstrap": "^5.0.1",
+    "xmlbuilder2": "^2.4.1"
   }
 }
