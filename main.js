@@ -2,6 +2,8 @@
 const { createPublicKey } = require('crypto')
 const { app, BrowserWindow, Menu, Accelerator } = require('electron')
 const path = require('path')
+const fs = require('fs');
+const { create } = require('xmlbuilder2');
 
 function createMainWindow () {
 	// Create the main browser window.

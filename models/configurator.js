@@ -30,7 +30,20 @@ class Configurator {
   }
 
   createXML() {
-    //methode voor XML nog afwachten op Wout
+    //generate the XML file
+    const root = create({ version: '1.0' })
+      .ele('config', { title: this.getTitle })
+        .ele('filter', { name: 'Datacollectie door', columnname: 'Language' })
+        .up()
+        .ele(this.getTabs).up()
+      .up();
+    
+    // convert the XML tree to string
+      const xml = root.end({ prettyPrint: true });
+
+    // create the config.xml file
+      try { fs.writeFileSync('config.xml', xml, 'utf-8'); }
+      catch(e) { alert('Failed to save the file !' + e); }
   }
 }
 
