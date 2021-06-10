@@ -59,21 +59,21 @@ app.whenReady().then(() => {
 // Create menu template
 var mainMenuTemplate = [
   {
-    label:'Tab maken',
+    label:'Create tab',
     click(){
       // Create tab window.
       createWindow('views/tab.html');
     }
   },
   {
-    label: 'Section maken',
+    label: 'Create section',
     click(){
       // Create section window
       createWindow('views/section.html');
     }
   },
   {
-    label: 'Graph maken',
+    label: 'Create graph',
     submenu:[
       {
         label: 'Demographic Chart',
@@ -155,7 +155,7 @@ var mainMenuTemplate = [
     ]
   },
   {
-    label:'Sluiten',
+    label:'Exit',
     accelerator: process.platform == 'darwin' ? 'Command+Q' :
     'Ctrl+Q',
     click(){
@@ -166,7 +166,8 @@ var mainMenuTemplate = [
 
 // If mac, add empty object to menu and set menu
 if(process.platform == 'darwin'){
-  mainMenuTemplate.unshift({});
+  mainMenuTemplate.unshift({label: 'Voices That Count'});
+  console.log(mainMenuTemplate)
   //build menu from template
   var macMenu = Menu.buildFromTemplate(mainMenuTemplate);
   Menu.setApplicationMenu(macMenu);
