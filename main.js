@@ -1,5 +1,6 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, Menu } = require('electron')
+const { createPublicKey } = require('crypto')
+const { app, BrowserWindow, Menu, Accelerator } = require('electron')
 const path = require('path')
 
 function createWindow () {
@@ -7,9 +8,6 @@ function createWindow () {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
   })
 
 	// and load the index.html of the app.
@@ -33,24 +31,65 @@ app.whenReady().then(() => {
   })
 })
 
+//Handle create tab
+function createTabWindow(){
+  	// Create tab window.
+    const win = new BrowserWindow({
+      width: 600,
+      height: 450,
+    })
+  
+    // and load the index.html of the app.
+    win.loadFile('tab.html')
+}
+
+//Handle create section
+function createSectionWindow(){
+  // Create section window.
+  const win = new BrowserWindow({
+    width: 600,
+    height: 450,
+  })
+
+  // and load the index.html of the app.
+  win.loadFile('section.html')
+}
+
 // Create menu template
 const mainMenuTemplate = [
   {
-    label:'Maken',
+    label:'Tab maken',
+    click(){
+      createTabWindow();
+    }
+  },
+  {
+    label: 'Section maken',
+    click(){
+      createSectionWindow();
+    }
+  },
+  {
+    label: 'Graph maken',
     submenu:[
       {
-        label: 'Tab maken'
+        label: 'Graph 1'
       },
       {
-        label: 'Section maken'
+        label: 'Graph 2'
       },
       {
-        label: 'Graph maken'
+        label: 'Graph 3'
       }
     ]
   },
   {
-    label:'Sluiten'
+    label:'Sluiten',
+    accelerator: process.platform == 'darwin' ? 'Command+Q' :
+    'Ctrl+Q',
+    click(){
+      app.quit();
+    }
   }
 ]
 
