@@ -4,7 +4,7 @@ const { app, BrowserWindow, Menu, Accelerator, ipcMain } = require('electron')
 const path = require('path')
 const fs = require('fs');
 const { create } = require('xmlbuilder2');
-const mainControllerKlasse = require('./mainController')
+const mainControllerclass = require('./mainController')
 var mainController;
 
 var Mwin = null;
@@ -78,7 +78,7 @@ app.whenReady().then(() => {
 
     if (BrowserWindow.getAllWindows().length === 0) createMainWindow()
   })
-  mainController = new mainControllerClass.MainController();
+  mainController = new mainControllerclass.MainController();
   var conf = mainController.getConfigurator();
 })
 
