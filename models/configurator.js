@@ -52,11 +52,12 @@ class Configurator {
 
   createXML() {
     //generate the XML file
-    const root = builder.create('config', this.getTitle() )
-        .ele('filter', { name: 'Datacollectie door', columnname: 'Language' })
-        .up()
-        .ele(this.getTabs())
-      .up();
+    const root1 = builder.create('config', { title: getTitle() })
+    .att( 'title', this.getTitle());
+    for (i = 0; i < this.getTabs().length; i++) {
+      root2 = root1.ele("tab", {title: this.getTabs()[i][0], icon: this.getTabs()[i][1], color: getTabs()[i][2]});
+        createTabXML(root2)
+      }
     
     // convert the XML tree to string
       const xml = root.end({ pretty: true });

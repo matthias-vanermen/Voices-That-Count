@@ -44,8 +44,12 @@ class Tab {
     }
   }
 
-  createTabXML() {
+  createTabXML(root) {
       //methode voor XML nog afwachten op Wout
+      for (j = 0; j < this.getSections().length; j++) {
+        root2 = root.ele("section", {title: this.getSections()[j][0], backgroundcolor: "#0e2050", textcolor:"white"});
+        createSectionXML(root2)
+      }
   }
 }
 
