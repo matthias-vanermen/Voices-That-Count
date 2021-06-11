@@ -7,16 +7,20 @@ import chart from './models/chart'
 */
 const electron = require('electron');
 
-var configurator;
+class MainController{
+    constructor(){
+        var tablist = [];
+        var filterlist = [];
+        this.configurator = new Configurator.Configurator(tablist, filterlist, 'Voices That Count');
+    }
 
-function makeConfigurator() {
-    var tablist = [];
-    configurator = new Configurator.Configurator(tablist, 'Voices That Count');
-    return configurator;
+    setConfigurator(configurator) {
+        this.configurator = configurator
+    }
+
+    getConfigurator(){
+        return this.configurator;
+    }
 }
 
-function test(){
-    return 'test'
-}
-
-module.exports = { makeConfigurator };
+module.exports = { MainController };
