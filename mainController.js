@@ -1,10 +1,8 @@
 
 const Configurator = require('./models/configurator')
-/*
-import tab from './models/tab'
-import section from './models/section'
-import chart from './models/chart'
-*/
+const Tab = require('./models/tab')
+const Section = require('./models/section')
+
 const electron = require('electron');
 
 class MainController{

@@ -21,7 +21,9 @@ function createMainWindow() {
   // and load the index.html of the app.
   win.loadFile("index.html");
 
-  win.webContents.openDevTools();
+  //uncommand to imediatly open devtools on startup
+  // win.webContents.openDevTools();
+
   win.on("closed", function () {
     app.quit();
   });
@@ -44,7 +46,7 @@ function createWindow(pathHtml) {
   });
 
   // and load the index.html of the app.
-  win.loadFile(pathHtml);
+  //win.loadFile(pathHtml);
 
   // Garbage collection
   win.on("close", function () {
@@ -69,6 +71,7 @@ app.whenReady().then(() => {
   })
   // creating a mainController instance
   instanceHandler.setMainController()
+  console.log(instanceHandler.getMainController())
 })
 
 // 

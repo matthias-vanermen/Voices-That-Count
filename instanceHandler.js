@@ -1,5 +1,5 @@
 const mainControllerClass = require("./mainController");
-var mainController;
+let mainController;
 
 function setMainController(){
     mainController = new mainControllerClass.MainController();
