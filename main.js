@@ -1,9 +1,12 @@
+
+
 // Modules to control application life and create native browser window
 const { createPublicKey } = require('crypto')
 const { app, BrowserWindow, Menu, Accelerator } = require('electron')
 const path = require('path')
 const fs = require('fs');
 const { create } = require('xmlbuilder2');
+const configurator = require('./mainController')
 
 function createMainWindow () {
 	// Create the main browser window.
@@ -54,6 +57,8 @@ app.whenReady().then(() => {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createMainWindow()
   })
+  var conf = configurator.makeConfigurator();
+  console.log(conf)
 })
 
 // Create menu template for windows/linux
@@ -150,6 +155,29 @@ var mainMenuTemplate = [
         click(){
           // Create Wordcloud Chart
           createWindow('views/Charts/chartWordcloud.html');
+        }
+      }
+    ]
+  },
+  {
+    label:'Create filter',
+    submenu:[
+      {
+        label: 'Simple filter',
+        click(){
+          createWindow('views/filterSimple.html');
+        }
+      },
+      {
+        label: 'Multiple choice filter',
+        click(){
+          createWindow('views/filterMultiplechoice.html');
+        }
+      },
+      {
+        label: 'Multi filter',
+        click(){
+          createWindow('views/filterMulti.html');
         }
       }
     ]
@@ -265,6 +293,29 @@ var macMenuTemplate = [
         click(){
           // Create Wordcloud Chart
           createWindow('views/Charts/chartWordcloud.html');
+        }
+      }
+    ]
+  },
+  {
+    label:'Create filter',
+    submenu:[
+      {
+        label: 'Simple filter',
+        click(){
+          createWindow('views/filterSimple.html');
+        }
+      },
+      {
+        label: 'Multiple choice filter',
+        click(){
+          createWindow('views/filterMultiplechoice.html');
+        }
+      },
+      {
+        label: 'Multi filter',
+        click(){
+          createWindow('views/filterMulti.html');
         }
       }
     ]

@@ -48,3 +48,5 @@ class Configurator {
 }
 
 // Use this class: let myConfigurator = new Configurator([], "Title");
+
+module.exports = {Configurator};
