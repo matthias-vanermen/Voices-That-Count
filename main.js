@@ -59,9 +59,6 @@ function createWindow(pathHtml) {
 
     // Remove menu bar
     win.setMenu(null)
-
-    //open dev tools
-    win.webContents.openDevTools();
   }
   else {
     console.log('Another window is already open.')
