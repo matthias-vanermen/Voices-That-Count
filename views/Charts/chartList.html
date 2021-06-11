@@ -8,10 +8,26 @@
 </head>
 <body>
     <form action="">
-        <label for="test">List:</label><br>
-        <input type="text" id="test" name="test"><br>
-        <label for="test2">Test2:</label><br>
-        <input type="radio" id="test2" name="test2" value="test2">
+        <label for="row">Give the number of rows the graph has to be:</label><br>
+        <input type="text" id="row" name="row"><br> 
+        <label for="rowspan">Give the number of row spans the graph has to be:</label><br>
+        <input type="text" id="rowspan" name="rowspan"><br>
+        <label for="column">Give the number of columns the graph has to be:</label><br>
+        <input type="text" id="column" name="column"><br>
+        <label for="columnspan">Give the number of column spans the graph has to be:</label> <br>
+        <input type="text" id="columnspan" name="columnspan"><br>
+        <label for="title">Give the title of the graph:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="datafieldtitle">Give the name of the dataset for the title of the story:</label><br>
+        <input type="text" id="datafieldtitle" name="datafieldtitle"><br>
+        <label for="datafieldtext">Give the name of the colum of the dataset for the story:</label><br>
+        <input type="text" id="datafieldtext" name="datafieldtext"><br>
+        <label for="listcounter">Give number of elements in list between brackets beside title:</label><br>
+        <input type="text" id="listcounter" name="listcounter"><br>
+        
+
+        <br><br>
+        <button onclick="makeListGraph()">Make graph</button>
     </form>
 </body>
 </html>
