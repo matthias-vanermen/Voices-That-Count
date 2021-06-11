@@ -75,8 +75,25 @@ class DistributionChart extends chart.Chart {
     }
   }
 
-  createChartXML() {
+  createChartXML(root) {
     // XML-methode van Wout.
+    root2 = root.ele("distributionchart")
+      .att('row', this.row)
+      .att('rowspan', this.rowspan)
+      .att('column', this.column)
+      .att('columnspan', this.rowspan)
+      .att('title', this.title)
+      .att('icon', this.icon)
+      .att('labelempty', this.getLabelempty())
+      .att('colorempty', this.getColorempty())
+      .att('datafield', this.getDatafield())
+      for (l = 0; l < getItems().length; l++) {
+        root2.ele('item', {value: this.getItems[l][0], label: this.getItems[l][1], color: this.getItems[l][2]}).up();
+      }
+
+
+
+
     /* 
     <distributionchart row="5" column="3" columnspan="2" title="Distribution demo" icon="home" color="#499894" labelempty="Geen mening" colorempty="#000000" datafield="M3Emotie">
         <itemvalue="Positief" label="Positief" color="#00ff00"></item>
