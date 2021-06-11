@@ -1,95 +1,91 @@
 class Triad extends Chart {
-    constructor(
-      row,
-      column,
-      rowspan,
-      columnspan,
-      title,
-      icon,
+  constructor(
+    row,
+    column,
+    rowspan,
+    columnspan,
+    title,
+    icon,
 
-      datapointcount,
-      selectioncount,
-      datafieldx,
-      datafieldy, 
-      labelx,
-      labely,
-      colorscale //examples: lOrRd, YlGnBu, RdBu, Portland, Picnic,Jet, Hot, Greys, Greens, Electric, Earth, Bluered, Blackbody
-    ) {
-      super(row, column, rowspan, columnspan, title, icon);
-      this.datafieldx = datafieldx;
-      this.datafieldy = datafieldy;
-      this.datapointcount = datapointcount;
-      this.selectioncount = selectioncount;
-      this.labelx = labelx;
-      this.labely = labely;
-      this.colorscale = colorscale;
-    }
-  
-  
-    setDatafieldx(datafieldx) {
-        this.datafieldx = datafieldx;
-    }
+    datapointcount,
+    selectioncount,
+    datafieldx,
+    datafieldy,
+    labelx,
+    labely,
+    colorscale //examples: lOrRd, YlGnBu, RdBu, Portland, Picnic,Jet, Hot, Greys, Greens, Electric, Earth, Bluered, Blackbody
+  ) {
+    super(row, column, rowspan, columnspan, title, icon);
+    this.datafieldx = datafieldx;
+    this.datafieldy = datafieldy;
+    this.datapointcount = datapointcount;
+    this.selectioncount = selectioncount;
+    this.labelx = labelx;
+    this.labely = labely;
+    this.colorscale = colorscale;
+  }
 
-    getDatafieldx() {
-        return this.datafieldx;
-    }
+  setDatafieldx(datafieldx) {
+    this.datafieldx = datafieldx;
+  }
 
-    setDatafieldy(datafieldy) {
-        this.datafieldy = datafieldy;
-    }
+  getDatafieldx() {
+    return this.datafieldx;
+  }
 
-    getDatafieldy() {
-        return this.datafieldy;
-    }
+  setDatafieldy(datafieldy) {
+    this.datafieldy = datafieldy;
+  }
 
-    setDatapointcount(datapointcount) {
-        this.datapointcount = datapointcount;
-    }
+  getDatafieldy() {
+    return this.datafieldy;
+  }
 
-    getDatapointcount() {
-        return this.datapointcount;
-    }
+  setDatapointcount(datapointcount) {
+    this.datapointcount = datapointcount;
+  }
 
-    setSelectioncount(selectioncount) {
-        this.selectioncount = selectioncount;
-    }
+  getDatapointcount() {
+    return this.datapointcount;
+  }
 
-    getSelectioncount() {
-        return this.selectioncount;
-    }
+  setSelectioncount(selectioncount) {
+    this.selectioncount = selectioncount;
+  }
 
-    setLabelx(labelx) {
-        this.labelx = labelx;
-    }
+  getSelectioncount() {
+    return this.selectioncount;
+  }
 
-    getLabelx() {
-        return this.labelx;
-    }
+  setLabelx(labelx) {
+    this.labelx = labelx;
+  }
 
-    setLabely(labely) {
-        this.labely = labely;
-    }
+  getLabelx() {
+    return this.labelx;
+  }
 
-    getLabely() {
-        return this.labely;
-    }
+  setLabely(labely) {
+    this.labely = labely;
+  }
 
-    setColorscale(colorscale) {
-        this.colorscale = colorscale;
-    }
+  getLabely() {
+    return this.labely;
+  }
 
-    getColorscale() {
-        return this.colorscale;
-    }
+  setColorscale(colorscale) {
+    this.colorscale = colorscale;
+  }
 
-  
-    createChartXML() {
-      // XML-methode van Wout.
-  
-      /*  
+  getColorscale() {
+    return this.colorscale;
+  }
+
+  createChartXML() {
+    // XML-methode van Wout.
+    /*  
       <density row="3" column="3" columnspan="2" title="Density plot demo" icon="home" datafieldx="L3GeluidLawaai-X" labelx="Geluid &amp; Lawaai" datafieldy="L3Luchtkwaliteit-X" 
       labely="Luchtkwaliteit" color="#499894" colorscale="YlGnBu" datapointcount="true" selectioncount="true"></density>
       */
-    }
   }
-  
+}

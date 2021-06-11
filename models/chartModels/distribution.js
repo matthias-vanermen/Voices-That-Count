@@ -6,14 +6,18 @@ class DistributionChart extends Chart {
     columnspan,
     title,
     icon,
-    color = "#00f", //default color; override with setColor()-methode
+
+    color,
     datafield,
     labelempty,
     colorempty,
     itemList
   ) {
     super(row, column, rowspan, columnspan, title, icon);
-    this.color = color;
+    if (color == "") {
+      //default color; override with setColor()-method
+      this.color = "#00f";
+    } else this.color = color;
     this.datafield = datafield;
     this.labelempty = labelempty;
     this.colorempty = colorempty;
@@ -71,7 +75,6 @@ class DistributionChart extends Chart {
 
   createChartXML() {
     // XML-methode van Wout.
-
     /* 
     <distributionchart row="5" column="3" columnspan="2" title="Distribution demo" icon="home" color="#499894" labelempty="Geen mening" colorempty="#000000" datafield="M3Emotie">
         <itemvalue="Positief" label="Positief" color="#00ff00"></item>

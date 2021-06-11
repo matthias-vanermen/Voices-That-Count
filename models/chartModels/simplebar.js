@@ -6,22 +6,34 @@ class SimplebarChart extends Chart {
     columnspan,
     title,
     icon,
-    color = "#00f", //default color; override with setColor()-method
-    percentage = "false",
+
+    color,
+    percentage,
     datafield,
-    orientation = "vertical",
+    orientation,
     leftmargin,
-    rightmargin = "30",
+    rightmargin,
     filtername,
     itemList
   ) {
     super(row, column, rowspan, columnspan, title, icon);
-    this.color = color;
-    this.percentage = percentage;
+    if (color == "") {
+      //default color; override with setColor()-method
+      this.color = "#00f";
+    } else this.color = color;
+    if (percentage == "") {
+      this.percentage = "false";
+    } else this.percentage = percentage;
     this.datafield = datafield;
-    this.orientation = orientation;
+
+    if (orientation == "") {
+      this.orientation = "vertical";
+    } else this.orientation = orientation;
     this.leftmargin = leftmargin;
-    this.rightmargin = rightmargin;
+
+    if (rightmargin == "") {
+      this.rightmargin = "30";
+    } else this.rightmargin = rightmargin;
     this.filtername = filtername;
     this.itemList = itemList;
   }
@@ -86,15 +98,15 @@ class SimplebarChart extends Chart {
   }
 
   deleteItem(label) {
-    for (var i = 0; i < this.itemList.length; i ++) {
-        if (this.itemList[i][1] == label) {
-          this.itemList.splice(i, 1);
-          i--;
-        }
+    for (var i = 0; i < this.itemList.length; i++) {
+      if (this.itemList[i][1] == label) {
+        this.itemList.splice(i, 1);
+        i--;
       }
+    }
   }
 
   createChartXML() {
-      // XML-methode van Wout.
+    // XML-methode van Wout.
   }
 }
