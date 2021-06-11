@@ -6,7 +6,7 @@ const path = require("path");
 const fs = require("fs");
 const { create } = require("xmlbuilder2");
 const mainControllerClass = require("./mainController");
-
+var mainController;
 
 function createMainWindow() {
   // Create the main browser window.
@@ -62,9 +62,9 @@ app.whenReady().then(() => {
 
     if (BrowserWindow.getAllWindows().length === 0) createMainWindow()
   })
-  var mainController = new mainControllerClass.MainController();
+  mainController = new mainControllerClass.MainController();
   var conf = mainController.getConfigurator();
-  console.log(conf)
+  console.log(conf);
 })
 
 
@@ -366,6 +366,8 @@ if (process.env.NODE_ENV !== "production") {
     ],
   });
 }
+
+module.exports = { mainController };
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
