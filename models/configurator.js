@@ -1,5 +1,6 @@
 const builder = require("xmlbuilder");
 const fs = require('fs');
+const tabClass = require('./tab');
 
 class Configurator {
   constructor(tabList, filterList,  title) {
@@ -52,12 +53,12 @@ class Configurator {
 
   createXML() {
     //generate the XML file
-    const root1 = builder.create('config', { title: getTitle() })
+    const root1 = builder.create('config')
     .att( 'title', this.getTitle());
-    for (i = 0; i < this.getTabs().length; i++) {
-      root2 = root1.ele("tab", {title: this.getTabs()[i][0], icon: this.getTabs()[i][1], color: getTabs()[i][2]});
-        createTabXML(root2)
-      }
+    for (var i = 0; i < this.getTabs().length; i++) {
+      var root2 = root1.ele("tab", {title: this.getTabs()[i]});
+      //tabClass.createTabXML(root2);
+    }
     
     // convert the XML tree to string
       const xml = root.end({ pretty: true });
