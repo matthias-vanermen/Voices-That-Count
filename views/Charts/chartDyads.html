@@ -5,13 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dyads</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
     <form action="">
-        <label for="test">Dyads:</label><br>
-        <input type="text" id="test" name="test"><br>
-        <label for="test2">Test2:</label><br>
-        <input type="radio" id="test2" name="test2" value="test2">
+        <label for="row">Give the number of rows the graph has to be:</label><br>
+        <input type="text" id="row" name="row"><br> 
+        <label for="column">Give the number of columns the graph has to be:</label><br>
+        <input type="text" id="column" name="column"><br>
+        <label for="columnspan">Give the number of column spans the graph has to be:</label> <br>
+        <input type="text" id="columnspan" name="columnspan"><br>
+        <label for="title">Give the title of the graph:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="icon">Give the icon name:</label><br>
+        <input type="text" id="icon" name="icon"><br>
+        <label for="colorIcon">Color of the icon (in hexadecimal):</label><br>
+        <input type="text" id="colorIcon" name="colorIcon" value="0000ff"><br>
+        <label for="datapointcount">If true, a few datapoints will be displayed as 'N = XXX':</label><br>
+        <input type="radio" id="datapointcount" name="datapointcount" value="datapointcount"><br>
+        <label for="selectioncount">If true, the selected amount datapoints will be displayed 'XXX (XX%)':</label><br>
+        <input type="radio" id="selectioncount" name="selectioncount" value="selectioncount"><br>
+        <label for="datafield">Name of colum of dataset:</label><br>
+        <input type="text" id="datafield" name="datafield"><br>
+        <label for="labelleft">The label that shows at the botom left of the graph:</label><br>
+        <input type="text" id="labelleft" name="labelleft"><br>
+        <label for="labelright">The label that shows at the bottom right of the graph:</label><br>
+        <input type="text" id="labelright" name="labelright"><br> 
+
+        <br><br>
+        <button onclick="makeDyadsGraph()">Make graph</button>
     </form>
 </body>
 </html>

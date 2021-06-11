@@ -3,7 +3,7 @@ class MultipleChoiceFilter {
       name,
       itemList
     ) {
-      this.name = name;
+      this.name = name;    
       this.type = "multiplechoice";
       this.itemList = itemList;
     }
@@ -40,3 +40,4 @@ class MultipleChoiceFilter {
     }
   }
   
+  module.exports = {MultipleChoiceFilter}

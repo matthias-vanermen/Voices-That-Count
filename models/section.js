@@ -72,4 +72,6 @@ class Section {
   }
 }
 
+module.exports = {Section}
+
 // Use this class: let mySection = new Section([], "title", "#bbbbbb", "#aaaaaa", "2", "left");
