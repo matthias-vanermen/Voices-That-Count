@@ -2,56 +2,79 @@
 
 // Modules to control application life and create native browser window
 const { createPublicKey } = require('crypto')
-const { app, BrowserWindow, Menu, Accelerator } = require('electron')
+const { app, BrowserWindow, Menu, Accelerator, ipcMain } = require('electron')
 const path = require('path')
 const fs = require('fs');
 const { create } = require('xmlbuilder2');
 const mainControllerKlasse = require('./mainController')
+var mainController;
 
-function createMainWindow () {
-	// Create the main browser window.
-  const win = new BrowserWindow({
+var Mwin = null;
+var win = null;
+
+function createMainWindow() {
+  // Create the main browser window.
+  Mwin = new BrowserWindow({
     width: 800,
     height: 600,
-  })
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    }
+  });
 
-	// and load the index.html of the app.
-  win.loadFile('index.html')
-  win.on('closed', function(){
+
+  // and load the index.html of the app.
+  Mwin.loadFile('index.html')
+  Mwin.on('closed', function () {
     app.quit();
   })
 
   //build menu from template
   var mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
   //Insert menu
-  win.setMenu(mainMenu);
+  Mwin.setMenu(mainMenu);
 }
 
-function createWindow (pathHtml) {
-	// Create the main browser window.
-  win = new BrowserWindow({
-    width: 600,
-    height: 450,
-  })
 
-	// and load the index.html of the app.
-  win.loadFile(pathHtml)
+function createWindow(pathHtml) {
+  if (win == null) {
+    // Create a new browser window.
+    win = new BrowserWindow({
+      width: 600,
+      height: 450,
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false,
+      }
+    })
 
-  // Garbage collection
-  win.on('close', function(){
-    win = null;
-  })
+    // and load the html-file
+    win.loadFile(pathHtml)
 
-  // Remove menu bar
-  win.setMenu(null)
+    // Garbage collection
+    win.on('close', function () {
+      win = null;
+    })
+
+    // Remove menu bar
+    win.setMenu(null)
+
+    //open dev tools
+    win.webContents.openDevTools();
+  }
+  else {
+    console.log('Another window is already open.')
+  }
 }
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createMainWindow()
-  
+
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
@@ -59,134 +82,147 @@ app.whenReady().then(() => {
   })
   var mainController = new mainControllerKlasse.MainController();
   var conf = mainController.getConfigurator();
-  console.log(conf)
 })
+
+// Get form variable
+ipcMain.on('addTabIpc', function (event, item) {
+  console.log(item);
+  Mwin.webContents.send('addTabIpc', item);
+  win.close();
+});
 
 // Create menu template for windows/linux
 var mainMenuTemplate = [
   {
-    label:'Create tab',
-    click(){
+    label: 'Create tab',
+    click() {
       // Create tab window.
       createWindow('views/tab.html');
     }
   },
   {
     label: 'Create section',
-    click(){
+    click() {
       // Create section window
       createWindow('views/section.html');
     }
   },
   {
     label: 'Create graph',
-    submenu:[
+    submenu: [
       {
         label: 'Demographic Chart',
-        click(){
+        click() {
           // Create Demographic Chart
           createWindow('views/Charts/chartDemographic.html');
         }
       },
       {
         label: 'Densityplots Chart',
-        click(){
+        click() {
           // Create Density plot Chart
           createWindow('views/Charts/chartDensityplots.html');
         }
       },
       {
         label: 'Distribution Chart',
-        click(){
+        click() {
           // Create Distribution Chart
           createWindow('views/Charts/chartDistribution.html');
         }
       },
       {
         label: 'Dyads Chart',
-        click(){
+        click() {
           // Create Dyads Chart
           createWindow('views/Charts/chartDyads.html');
         }
       },
       {
         label: 'List Chart',
-        click(){
+        click() {
           // Create List Chart
           createWindow('views/Charts/chartList.html');
         }
       },
       {
         label: 'Multiplechoicebar Chart',
-        click(){
+        click() {
           // Create Multiple choice bar Chart
           createWindow('views/Charts/chartMultiplechoicebar.html');
         }
       },
       {
         label: 'Multipletopicbar Chart',
-        click(){
+        click() {
           // Create Multiple topic bar Chart
           createWindow('views/Charts/chartMultipletopicbar.html');
         }
       },
       {
         label: 'Simplebar Chart',
-        click(){
+        click() {
           // Create Simple bar Chart
           createWindow('views/Charts/chartSimplebar.html');
         }
       },
       {
         label: 'Traffic Chart',
-        click(){
+        click() {
           // Create Traffic Chart
           createWindow('views/Charts/chartTraffic.html');
         }
       },
       {
         label: 'Triads Chart',
-        click(){
+        click() {
           // Create Triads Chart
           createWindow('views/Charts/chartTriads.html');
         }
       },
       {
         label: 'Wordcloud Chart',
-        click(){
+        click() {
           // Create Wordcloud Chart
           createWindow('views/Charts/chartWordcloud.html');
+        }
+      },
+      {
+        label: 'Polarbar chart',
+        click() {
+          // Create Wordcloud Chart
+          createWindow('views/Charts/chartPolarbar.html');
         }
       }
     ]
   },
   {
-    label:'Create filter',
-    submenu:[
+    label: 'Create filter',
+    submenu: [
       {
         label: 'Simple filter',
-        click(){
+        click() {
           createWindow('views/filterSimple.html');
         }
       },
       {
         label: 'Multiple choice filter',
-        click(){
+        click() {
           createWindow('views/filterMultiplechoice.html');
         }
       },
       {
         label: 'Multi filter',
-        click(){
+        click() {
           createWindow('views/filterMulti.html');
         }
       }
     ]
   },
   {
-    label:'Exit',
+    label: 'Exit',
     accelerator: 'Ctrl+Q',
-    click(){
+    click() {
       app.quit();
     }
   }
@@ -195,21 +231,21 @@ var mainMenuTemplate = [
 // Create menu template for mac
 var macMenuTemplate = [
   {
-    label:'Voices That Count'
+    label: 'Voices That Count'
   },
   {
-    label:'Create',
-    submenu:[
+    label: 'Create',
+    submenu: [
       {
         label: 'Create tab',
-        click(){
+        click() {
           // Create tab window.
           createWindow('views/tab.html');
         }
       },
       {
         label: 'Create section',
-        click(){
+        click() {
           // Create section window
           createWindow('views/section.html');
         }
@@ -218,104 +254,111 @@ var macMenuTemplate = [
   },
   {
     label: 'Create graph',
-    submenu:[
+    submenu: [
       {
         label: 'Demographic Chart',
-        click(){
+        click() {
           // Create Demographic Chart
           createWindow('views/Charts/chartDemographic.html');
         }
       },
       {
         label: 'Densityplots Chart',
-        click(){
+        click() {
           // Create Density plot Chart
           createWindow('views/Charts/chartDensityplots.html');
         }
       },
       {
         label: 'Distribution Chart',
-        click(){
+        click() {
           // Create Distribution Chart
           createWindow('views/Charts/chartDistribution.html');
         }
       },
       {
         label: 'Dyads Chart',
-        click(){
+        click() {
           // Create Dyads Chart
           createWindow('views/Charts/chartDyads.html');
         }
       },
       {
         label: 'List Chart',
-        click(){
+        click() {
           // Create List Chart
           createWindow('views/Charts/chartList.html');
         }
       },
       {
         label: 'Multiplechoicebar Chart',
-        click(){
+        click() {
           // Create Multiple choice bar Chart
           createWindow('views/Charts/chartMultiplechoicebar.html');
         }
       },
       {
         label: 'Multipletopicbar Chart',
-        click(){
+        click() {
           // Create Multiple topic bar Chart
           createWindow('views/Charts/chartMultipletopicbar.html');
         }
       },
       {
         label: 'Simplebar Chart',
-        click(){
+        click() {
           // Create Simple bar Chart
           createWindow('views/Charts/chartSimplebar.html');
         }
       },
       {
         label: 'Traffic Chart',
-        click(){
+        click() {
           // Create Traffic Chart
           createWindow('views/Charts/chartTraffic.html');
         }
       },
       {
         label: 'Triads Chart',
-        click(){
+        click() {
           // Create Triads Chart
           createWindow('views/Charts/chartTriads.html');
         }
       },
       {
         label: 'Wordcloud Chart',
-        click(){
+        click() {
           // Create Wordcloud Chart
           createWindow('views/Charts/chartWordcloud.html');
+        }
+      },
+      {
+        label: 'Polarbar chart',
+        click() {
+          // Create Wordcloud Chart
+          createWindow('views/Charts/chartPolarbar.html');
         }
       }
     ]
   },
   {
-    label:'Create filter',
-    submenu:[
+    label: 'Create filter',
+    submenu: [
       {
         label: 'Simple filter',
-        click(){
+        click() {
           createWindow('views/filterSimple.html');
         }
       },
       {
         label: 'Multiple choice filter',
-        click(){
+        click() {
           createWindow('views/filterMultiplechoice.html');
         }
       },
       {
         label: 'Multi filter',
-        click(){
+        click() {
           createWindow('views/filterMulti.html');
         }
       }
@@ -325,38 +368,38 @@ var macMenuTemplate = [
     label: 'options',
     submenu: [
       {
-          label:'Exit',
-          accelerator: 'Command+Q',
-          click(){
-            app.quit();
-          }
+        label: 'Exit',
+        accelerator: 'Command+Q',
+        click() {
+          app.quit();
+        }
       }
     ]
   }
 ];
 
 // If mac, add empty object to menu and set menu
-if(process.platform == 'darwin'){
+if (process.platform == 'darwin') {
   //build menu from template
   var macMenu = Menu.buildFromTemplate(macMenuTemplate);
   Menu.setApplicationMenu(macMenu);
 }
 
 // Add develop tools
-if(process.env.NODE_ENV !== 'production'){
+if (process.env.NODE_ENV !== 'production') {
   mainMenuTemplate.push({
     label: 'Developer Tools',
     submenu: [
       {
         label: 'Toggle DevTools',
         accelerator: process.platform == 'darwin' ? 'Command+I' :
-        'Ctrl+I',
-        click(item, focusedWindow){
+          'Ctrl+Shift+I',
+        click(item, focusedWindow) {
           focusedWindow.toggleDevTools();
         }
       },
       {
-        role:'reload'
+        role: 'reload'
       }
     ]
   });
