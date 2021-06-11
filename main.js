@@ -1,12 +1,11 @@
 // Modules to control application life and create native browser window
-
 const { createPublicKey } = require("crypto");
 const { app, BrowserWindow, Menu, Accelerator } = require("electron");
 const path = require("path");
 const fs = require("fs");
 const { create } = require("xmlbuilder2");
-const mainControllerClass = require("./mainController");
-var mainController;
+const instanceHandler = require('./instanceHandler')
+
 
 function createMainWindow() {
   // Create the main browser window.
@@ -21,6 +20,8 @@ function createMainWindow() {
 
   // and load the index.html of the app.
   win.loadFile("index.html");
+
+  win.webContents.openDevTools();
   win.on("closed", function () {
     app.quit();
   });
@@ -36,6 +37,10 @@ function createWindow(pathHtml) {
   win = new BrowserWindow({
     width: 600,
     height: 450,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
   });
 
   // and load the index.html of the app.
@@ -62,10 +67,11 @@ app.whenReady().then(() => {
 
     if (BrowserWindow.getAllWindows().length === 0) createMainWindow()
   })
-  mainController = new mainControllerClass.MainController();
-  var conf = mainController.getConfigurator();
-  console.log(conf);
+  // creating a mainController instance
+  instanceHandler.setMainController()
 })
+
+// 
 
 
 // Create menu template for windows/linux
@@ -367,7 +373,7 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-module.exports = { mainController };
+
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
@@ -375,3 +381,4 @@ module.exports = { mainController };
 app.on("window-all-closed", function () {
   if (process.platform !== "darwin") app.quit();
 });
+

@@ -1,4 +1,2 @@
-const main = require('./main')
+const instanceHandler = require('./instanceHandler')
 console.log("test")
-
-alert(json.stringify(main))
