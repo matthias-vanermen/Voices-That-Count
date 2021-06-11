@@ -5,20 +5,51 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Voices That Count</title>
   </head>
   <body>
-    <h1 class="border border-primary">Welkom bij het project van Voices That Count</h1>
-    <hr>
     <div id="tabs">
+
       <h3>Tabs</h3>
+      <hr>
+      <p class="tab">Tab1</p>
+        <p class="section">Section1</p>
+          <p class="chart">Chart1</p>
+          <p class="chart">Chart2</p>
+          <button class="chart" onclick="addChart()">add Chart</button>
+        <button class="section" onclick="addSection()">add Section</button>
+        <p class="section">Section2</p>
+          <p class="chart">Chart1</p>
+          <button class="chart" onclick="addChart()">add Chart</button>
+        <button class="section" onclick="addSection()">add Section</button>
+      <button class="tab" onclick="addTab()">add Tab</button>
+
+      <p class="tab">Tab2</p>
+        <p class="section">Section1</p>
+          <p class="chart">Chart1</p>
+          <p class="chart">Chart2</p>
+          <p class="chart">Chart3</p>
+          <button class="chart" onclick="addChart()">add Chart</button>
+        <button class="section" onclick="addSection()">add Section</button>
+        <p class="section">Section2</p>
+          <p class="chart">Chart1</p>
+          <p class="chart">Chart2</p>
+          <button class="chart" onclick="addChart()">add Chart</button>
+        <button class="section" onclick="addSection()">add Section</button>
+      <button class="tab" onclick="addTab()">add Tab</button>
       
     </div>
-    <hr>
     <div id="filters">
       <h3>Filters</h3>
-      
+      <hr>
+      <p class="filter">Filter1</p>
+      <p class="filter">Filter2</p>
+      <p class="filter">Filter3</p>
+      <button onclick="addFilter()">add Filter</button>
     </div>
+    <hr>
+    <button onclick="generateXML()">generate XML file</button>
 	<!-- You can also require other files to run in this process -->
     <script src="./navigation.js"></script>
   </body>

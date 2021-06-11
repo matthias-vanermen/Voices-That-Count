@@ -53,5 +53,6 @@ class Tab {
   }
 }
 
-module.exports = {Tab}
+module.exports = { Tab };
+
 // Use this class: let myTab = new Tab([], "Title", "#eeeeee", "coffee");

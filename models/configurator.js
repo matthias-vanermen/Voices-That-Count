@@ -1,3 +1,6 @@
+const builder = require("xmlbuilder");
+const fs = require('fs');
+
 class Configurator {
   constructor(tabList, filterList,  title) {
     this.tabList = tabList;
@@ -57,7 +60,7 @@ class Configurator {
       }
     
     // convert the XML tree to string
-      const xml = root.end({ prettyPrint: true });
+      const xml = root.end({ pretty: true });
 
     // create the config.xml file
       try { fs.writeFileSync('config.xml', xml, 'utf-8'); }

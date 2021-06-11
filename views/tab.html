@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
     <title>tab</title>
 </head>
 <body>
-    <form action="">
+    <form>
         <label for="title">Title of the tab:</label><br>
         <input type="text" id="title" name="title"><br>
         <label for="color">Color:</label><br>
@@ -15,7 +17,26 @@
         <label for="icon">Icon name:</label><br>
         <input type="text" id="icon" name="icon"><br>
         <br><br>
-        <button onclick="makeTab()">Make tab</button>
+        <button type="submit">Make tab</button>
     </form>
+
+    <script src="../models/tab.js"></script>
+    <script>
+        const electron = require('electron');
+        const {ipcRenderer} = electron;
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', submitForm);
+
+        function submitForm(e){
+            e.preventDefault();
+            const title = document.querySelector('#title').value;
+            const color = document.querySelector('#color').value;
+            const icon = document.querySelector('#icon').value;
+            const sectionList = [];
+            const tab = new Tab(sectionList, title, color, icon);
+            ipcRenderer.send('tab:add', tab);
+        }
+    </script>
 </body>
 </html>
