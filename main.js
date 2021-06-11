@@ -21,6 +21,8 @@ function createMainWindow() {
 
   // and load the index.html of the app.
   win.loadFile("index.html");
+
+  
   win.on("closed", function () {
     app.quit();
   });
@@ -36,11 +38,15 @@ function createWindow(pathHtml) {
   win = new BrowserWindow({
     width: 600,
     height: 450,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
   });
 
   // and load the index.html of the app.
   win.loadFile(pathHtml);
-
+  win.webContents.openDevTools();
   // Garbage collection
   win.on("close", function () {
     win = null;

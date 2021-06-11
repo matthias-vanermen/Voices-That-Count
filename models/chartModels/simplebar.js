@@ -107,10 +107,6 @@ class SimplebarChart extends chart.Chart {
       }
     }
   }
-
-  createChartXML() {
-    // XML-methode van Wout.
-  }
 }
 
 module.exports = { SimplebarChart };
