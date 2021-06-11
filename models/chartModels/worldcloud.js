@@ -46,8 +46,16 @@ class WordcloudChart extends chart.Chart {
     return this.fontsize;
   }
 
-  createChartXML() {
+  createChartXML(root) {
     // XML-methode van Wout.
+    root2 = root.ele("distributionchart")
+      .att('row', this.row)
+      .att('rowspan', this.rowspan)
+      .att('column', this.column)
+      .att('columnspan', this.rowspan)
+      .att('title', this.title)
+      .att('datafield', this.getDatafield())
+      .att('fontsize', this.getFontsize());
     /*
       <wordcloud row="1" column="1" columnspan="2" datafield="Verhaal" fontsize="10"></wordcloud>
       */

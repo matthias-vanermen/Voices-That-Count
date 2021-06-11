@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
     <title>tab</title>
 </head>
 <body>
-    <form action="">
+    <form action="" method="POST" id="tabForm">
         <label for="title">Title of the tab:</label><br>
         <input type="text" id="title" name="title"><br>
         <label for="color">Color:</label><br>
@@ -15,7 +17,22 @@
         <label for="icon">Icon name:</label><br>
         <input type="text" id="icon" name="icon"><br>
         <br><br>
-        <button onclick="makeTab()">Make tab</button>
+        <button onclick="addTab()">Make tab</button>
     </form>
+
+    <script src="../models/tab.js"></script>
+    <script>
+        const electron = require('electron');
+        const {ipcRenderer} = electron;
+        function addTab() {
+            var title = document.getElementById("title").value;
+            var color = document.getElementById("color").value;
+            var icon = document.getElementById("icon");
+            var sectionlist = [];
+            tab = new Tab(sectionlist, title, color, icon);
+            console.log(tab);
+            ipcRenderer.send('addTabIpc', tab);
+        }
+    </script>
 </body>
 </html>
