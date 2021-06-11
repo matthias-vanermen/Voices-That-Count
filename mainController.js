@@ -8,10 +8,27 @@ import chart from './models/chart'
 const electron = require('electron');
 
 class MainController{
-    constructor(){
-        var tablist = [];
-        var filterlist = [];
-        this.configurator = new Configurator.Configurator(tablist, filterlist, 'Voices That Count');
+    constructor(tablist, filterlist, title, configurator){
+        this.tablist = tablist;
+        this.filterlist = filterlist;
+        this.title = title;
+        this.configurator = configurator;
+    }
+
+    addTab(tab){
+        this.tablist.unshift(tab);
+    }
+
+    getTab(){
+        return this.tablist;
+    }
+
+    addFilter(filter){
+        this.filterlist.push(filter);
+    }
+
+    getFilter(){
+        return this.filterlist;
     }
 
     setConfigurator(configurator) {
