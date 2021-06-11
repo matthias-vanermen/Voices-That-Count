@@ -1,10 +1,12 @@
 // Modules to control application life and create native browser window
+
 const { createPublicKey } = require("crypto");
 const { app, BrowserWindow, Menu, Accelerator } = require("electron");
 const path = require("path");
 const fs = require("fs");
 const { create } = require("xmlbuilder2");
-const configurator = require("./mainController");
+const mainControllerClass = require("./mainController");
+
 
 function createMainWindow() {
   // Create the main browser window.
@@ -57,11 +59,14 @@ app.whenReady().then(() => {
   app.on("activate", function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) createMainWindow();
-  });
-  var conf = configurator.makeConfigurator();
-  console.log(conf);
-});
+
+    if (BrowserWindow.getAllWindows().length === 0) createMainWindow()
+  })
+  var mainController = new mainControllerClass.MainController();
+  var conf = mainController.getConfigurator();
+  console.log(conf)
+})
+
 
 // Create menu template for windows/linux
 var mainMenuTemplate = [

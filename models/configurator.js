@@ -1,6 +1,7 @@
 class Configurator {
-  constructor(tabList, title) {
+  constructor(tabList, filterList,  title) {
     this.tabList = tabList;
+    this.filterList = filterList;
     this.title = title;
   }
 
@@ -24,6 +25,23 @@ class Configurator {
     for (var i = 0; i < this.tabList.length; i++) {
       if (this.tabList[i] == tab) {
         this.tabList.splice(i, 1);
+        i--;
+      }
+    }
+  }
+
+  addFilter(filter) {
+    this.filterList.push(filter);
+  }
+
+  getFilters() {
+    return this.filterList;
+  }
+
+  deleteFilter(filter) {
+    for (var i = 0; i < this.filterList.length; i++) {
+      if (this.filterList[i] == filter) {
+        this.filterList.splice(i, 1);
         i--;
       }
     }
