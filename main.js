@@ -54,6 +54,7 @@ function createWindow(pathHtml) {
       win = null;
     })
 
+
     // Remove menu bar
     win.setMenu(null)
   }
