@@ -6,11 +6,15 @@ class DemographicChart extends Chart {
     columnspan,
     title,
     icon,
-    color = "#00f", //default color; override with setColor()-method
+
+    color,
     itemList
   ) {
     super(row, column, rowspan, columnspan, title, icon);
-    this.color = color;
+    if (color == "") {
+      //default color; override with setColor()-method
+      this.color = "#00f";
+    } else this.color = color;
     this.itemList = itemList;
   }
 
@@ -42,7 +46,6 @@ class DemographicChart extends Chart {
 
   createChartXML() {
     // XML-methode van Wout.
-
     /*
 
     <demographic row="4" column="1" columnspan="4" title="Demographic" icon="home" color="#499894">

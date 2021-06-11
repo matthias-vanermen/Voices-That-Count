@@ -6,7 +6,8 @@ class TraffiChart extends Chart {
     columnspan,
     title,
     icon,
-    color = "#00f", //default color; override with setColor()-method
+
+    color,
     city,
     street,
     pae,
@@ -15,7 +16,10 @@ class TraffiChart extends Chart {
     nodata
   ) {
     super(row, column, rowspan, columnspan, title, icon);
-    this.color = color;
+    if (color == "") {
+      //default color; override with setColor()-method
+      this.color = "#00f";
+    } else this.color = color;
     this.city = city;
     this.street = street;
     this.roadcategory = roadcategory;

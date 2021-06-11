@@ -7,13 +7,18 @@ class DistributionChart extends Chart {
     title,
     icon,
 
-    color = "#00f",
-    groupby = "false",
+    color,
+    groupby,
     itemList
   ) {
     super(row, column, rowspan, columnspan, title, icon);
-    this.color = color;
-    this.groupby = groupby;
+    if (color == "") {
+      //default color; override with setColor()-method
+      this.color = "#00f";
+    } else this.color = color;
+    if (groupby == "") {
+      this.groupby = "false";
+    } else this.groupby = groupby;
     this.itemList = itemList;
   }
 
