@@ -6,6 +6,7 @@ const fs = require('fs');
 const builder = require("xmlbuilder");
 const mainControllerclass = require('./mainController')
 var mainController;
+const instanceHandler = require('./instanceHandler')
 
 var Mwin = null;
 var win = null;
@@ -23,6 +24,7 @@ function createMainWindow() {
 
 
   // and load the index.html of the app.
+
   Mwin.loadFile('index.html')
   Mwin.on('closed', function () {
     app.quit();
@@ -76,6 +78,7 @@ app.whenReady().then(() => {
 
     if (BrowserWindow.getAllWindows().length === 0) createMainWindow()
   })
+
   mainController = new mainControllerclass.MainController();
   var conf = mainController.getConfigurator();
 })
@@ -401,7 +404,7 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
-module.exports = { mainController };
+
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
@@ -409,3 +412,4 @@ module.exports = { mainController };
 app.on("window-all-closed", function () {
   if (process.platform !== "darwin") app.quit();
 });
+
