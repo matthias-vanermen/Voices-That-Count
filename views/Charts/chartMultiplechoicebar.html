@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multiplechoice bar</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <form action="">
@@ -22,9 +23,9 @@
         <label for="colorIcon">Color of the icon (in hexadecimal):</label><br>
         <input type="text" id="colorIcon" name="colorIcon" value="0000ff"><br>
         <label for="percentage">True (checked), False(not checked):</label><br>
-        <input type="radio" id="percentage" name="percentage" value="percentage"><br>
+        <input type="checkbox" id="percentage" name="percentage" value="percentage"><br>
         <label for="orientation">Horizontal (checked), Vertical (not checked):</label><br>
-        <input type="radio" id="orientation" name="orientation" value="orientation"><br>
+        <input type="checkbox" id="orientation" name="orientation" value="orientation"><br>
         <label for="leftmargin">Give number of extra space left of the horizontal text bar:</label><br>
         <input type="text" id="leftmargin" name="leftmargin"><br>
         <label for="rightmargin">Give number of extra space right of the horizontal text bar:</label><br>
@@ -32,13 +33,13 @@
         <label for="filtername">Name of corresponding filter:</label><br>
         <input type="text" id="filtername" name="filtername"><br>
 
-        <br><br><br>
+      
             <div id="itemMultiplechoicebar">
                 <label for="item1"></label>
                 <label for="columname">Give the columname:</label><br>
                 <input type="text" id="columname" name="columname"><br>
                 <label for="label">Give the name that is displayed in the dasboard:</label><br>
-                <input type="text" id="label" name="label"><br>
+                <input type="text" id="label" name="label"><br><br>
                 <button onclick="addItem()">Make item</button>
             </div>
         <br><br>

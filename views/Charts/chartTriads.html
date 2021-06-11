@@ -5,13 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Triads</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <form action="">
-        <label for="test">Triads:</label><br>
-        <input type="text" id="test" name="test"><br>
-        <label for="test2">Test2:</label><br>
-        <input type="radio" id="test2" name="test2" value="test2">
+        <label for="row">Give the number of rows the graph has to be:</label><br>
+        <input type="text" id="row" name="row"><br> 
+        <label for="column">Give the number of columns the graph has to be:</label><br>
+        <input type="text" id="column" name="column"><br>
+        <label for="columnspan">Give the number of column spans the graph has to be:</label> <br>
+        <input type="text" id="columnspan" name="columnspan"><br>
+        <label for="title">Give the title of the graph:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="icon">Give the icon name:</label><br>
+        <input type="text" id="icon" name="icon"><br>
+        <label for="colorIcon">Color of the icon (in hexadecimal):</label><br>
+        <input type="text" id="colorIcon" name="colorIcon" value="0000ff"><br>
+        <label for="datapointcount">If true, a few datapoints will be displayed as 'N = XXX':</label><br>
+        <input type="checkbox" id="datapointcount" name="datapointcount" value="datapointcount"><br>
+        <label for="selectioncount">If true, the selected amount datapoints will be displayed 'XXX (XX%)':</label><br>
+        <input type="checkbox" id="selectioncount" name="selectioncount" value="selectioncount"><br>
+        <label for="datafieldtop">Name of first colum of dataset:</label><br>
+        <input type="text" id="datafieldtop" name="datafieldtop"><br>
+        <label for="datafieldleft">Name of second colum of dataset:</label><br>
+        <input type="text" id="datafieldleft" name="datafieldleft"><br>
+        <label for="datafieldright">Name of third colum of dataset:</label><br>
+        <input type="text" id="datafieldright" name="datafieldright"><br>
+        <label for="labeltop">Label shown at the top of the graph:</label><br>
+        <input type="text" id="labeltop" name="labeltop"><br>
+        <label for="labelleft">Label shown at the bottom left of the graph:</label><br>
+        <input type="text" id="labelleft" name="labelleft"><br>
+        <label for="labelright">Label shown at the bottom right of the graph:</label><br>
+        <input type="text" id="labelright" name="labelright"><br>
+        <label for="grid">Checked (raster shown), not checked (raster hidden):</label><br>
+        <input type="checkbox" id="grid" name="grid" value="grid"><br>
+
+        <br><br>
+        <button onclick="makeTriadsGraph()">Make graph</button>
     </form>
 </body>
 </html>

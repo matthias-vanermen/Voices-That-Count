@@ -1,4 +1,6 @@
-class DistributionChart extends Chart {
+const chart = require("../chart");
+
+class ListChart extends chart.Chart {
   constructor(
     row,
     column,
@@ -42,11 +44,25 @@ class DistributionChart extends Chart {
     return this.listcounter;
   }
 
-  createChartXML() {
+  createChartXML(root) {
     // XML-methode van Wout.
+    root2 = root.ele("list")
+    .att('row', this.row)
+    .att('rowspan', this.rowspan)
+    .att('column', this.column)
+    .att('columnspan', this.rowspan)
+    .att('title', this.title)
+    .att('datafieldtext', this.getDatafieldtext())
+    .att('datafieldtitle', this.getDatafieldtitle())
+    .att('listcounter', this.getListcounter());
+
+
+
     /* 
       <list row="1" rowspan="2" column="3" columnspan="2" title="verhalen" datafieldtitle="TitelVerhaal" datafieldtext="Verhaal" listcounter="true"></list>
       <list row="1" column="3" columnspan="2" title="Sugesties" datafieldtext="13IdeeënSuggestiesOndersteuningOuderen"></list>
       */
   }
 }
+
+module.exports = { ListChart };

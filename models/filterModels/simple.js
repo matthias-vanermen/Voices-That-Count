@@ -42,9 +42,17 @@ class SimpleFilter {
       }
     }
   
-    createChartXML() {
+    createChartXML(root) {
       // XML-methode van Wout.
+      root2 = root.ele('filter')
+        .att('name', this.getName())
+        .att('columnname', this.getColumnname)
+        for (l = 0; l < getItems().length; l++) {
+          root2.ele('item', {value: this.getItems[l][0], label: this.getItems[l][1]}).up();
+        }
+
       
     }
   }
   
+  module.exports = {SimpleFilter}

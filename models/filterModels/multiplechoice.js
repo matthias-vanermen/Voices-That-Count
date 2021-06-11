@@ -3,7 +3,7 @@ class MultipleChoiceFilter {
       name,
       itemList
     ) {
-      this.name = name;
+      this.name = name;    
       this.type = "multiplechoice";
       this.itemList = itemList;
     }
@@ -34,9 +34,15 @@ class MultipleChoiceFilter {
       }
     }
   
-    createChartXML() {
+    createChartXML(root) {
       // XML-methode van Wout.
-      
+      root2 = root.ele('filter')
+        .att('name', this.getName)
+        .att('type', "multiplechoice")
+        for (l = 0; l < getItems().length; l++) {
+          root2.ele('multiplechoiceitem', {columnname: this.getItems[l][0], label: this.getItems[l][1]}).up();
+        }
     }
   }
   
+  module.exports = {MultipleChoiceFilter}
