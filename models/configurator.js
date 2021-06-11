@@ -54,14 +54,14 @@ class Configurator {
   createXML() {
     //generate the XML file
     const root1 = builder.create('config')
-    .att( 'title', this.getTitle());
+    .ele('title').att('title', this.getTitle());
     for (var i = 0; i < this.getTabs().length; i++) {
-      var root2 = root1.ele("tab", {title: this.getTabs()[i]});
+      var root2 = root1.ele("tab").att("title", this.getTabs()[i]).up();
       //tabClass.createTabXML(root2);
     }
     
     // convert the XML tree to string
-      const xml = root.end({ pretty: true });
+      const xml = root1.end({allowEmpty: true, pretty: true });
 
     // create the config.xml file
       try { fs.writeFileSync('config.xml', xml, 'utf-8'); }
