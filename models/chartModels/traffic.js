@@ -84,7 +84,7 @@ class TraffiChart extends chart.Chart {
     return this.nodata;
   }
 
-  createChartXML() {
+  createChartXML(root) {
     root2 = root.ele("traffic")
     .att('row', this.row)
     .att('rowspan', this.rowspan)

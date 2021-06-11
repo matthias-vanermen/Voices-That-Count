@@ -44,7 +44,7 @@ class ListChart extends chart.Chart {
     return this.listcounter;
   }
 
-  createChartXML() {
+  createChartXML(root) {
     // XML-methode van Wout.
     root2 = root.ele("list")
     .att('row', this.row)
