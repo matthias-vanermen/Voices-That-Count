@@ -108,8 +108,24 @@ class SimplebarChart extends chart.Chart {
     }
   }
 
-  createChartXML() {
+  createChartXML(root) {
     // XML-methode van Wout.
+    root2 = root.ele("simplebarchart")
+      //deze attributen krijg ik nergens data van
+      .att('row', this.row)
+      .att('column', this.column)
+      .att('title', this.title)
+      .att('icon', this.icon)
+      //attributen
+      .att('color', this.getColor())
+      .att('percentage', this.getPercentage())
+      .att('datafield', this.getDatafield())
+      .att('filtername', this.getDatafield())
+      .att('leftmargin', this.getLeftmargin())
+      .att('rightmargin', this.getRightmargin());
+      for (l = 0; l < getItems().length; l++) {
+        root2.ele('item', {value: this.getItems[l][0], label: this.getItems[l][1]}).up();
+      }
   }
 }
 
