@@ -8,10 +8,40 @@
 </head>
 <body>
     <form action="">
-        <label for="test">Multiplechoice bar:</label><br>
-        <input type="text" id="test" name="test"><br>
-        <label for="test2">Test2:</label><br>
-        <input type="radio" id="test2" name="test2" value="test2">
+        <label for="row">Give the number of rows the graph has to be:</label><br>
+        <input type="text" id="row" name="row"><br> 
+        <label for="column">Give the number of columns the graph has to be:</label><br>
+        <input type="text" id="column" name="column"><br>
+        <label for="columnspan">Give the number of column spans the graph has to be:</label> <br>
+        <input type="text" id="columnspan" name="columnspan"><br>
+        <label for="title">Give the title of the graph:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="icon">Give the icon name:</label><br>
+        <input type="text" id="icon" name="icon"><br>
+        <label for="colorIcon">Color of the icon (in hexadecimal):</label><br>
+        <input type="text" id="colorIcon" name="colorIcon" value="0000ff"><br>
+        <label for="percentage">True (checked), False(not checked):</label><br>
+        <input type="radio" id="percentage" name="percentage" value="percentage"><br>
+        <label for="orientation">Horizontal (checked), Vertical (not checked):</label><br>
+        <input type="radio" id="orientation" name="orientation" value="orientation"><br>
+        <label for="leftmargin">Give number of extra space left of the horizontal text bar:</label><br>
+        <input type="text" id="leftmargin" name="leftmargin"><br>
+        <label for="rightmargin">Give number of extra space right of the horizontal text bar:</label><br>
+        <input type="text" id="rightmargin" name="rightmargin"><br>
+
+        <br><br><br>
+            <div id="itemMultipletopicbar">
+                <label for="item1"></label>
+                <label for="columname">Give the columname:</label><br>
+                <input type="text" id="columname" name="columname"><br>
+                <label for="label">Give the name that is displayed in the dasboard:</label><br>
+                <input type="text" id="label" name="label"><br>
+                <label for="color">Choose color for the item:</label><br>
+                <input type="text" id="color" name="color"><br>
+                <button onclick="addItem()">Make item</button>
+            </div>
+        <br><br>
+        <button onclick="makeMultipletopicbarGraph()">Make graph</button>
     </form>
 </body>
 </html>
