@@ -4,9 +4,8 @@ const { app, BrowserWindow, Menu, Accelerator, ipcMain } = require('electron')
 const path = require('path')
 const fs = require('fs');
 const builder = require("xmlbuilder");
-const mainControllerclass = require('./mainController')
-var mainController;
-const instanceHandler = require('./instanceHandler')
+const configuratorclass = require('./models/configurator')
+var configurator;
 
 var Mwin = null;
 var win = null;
@@ -33,7 +32,8 @@ function createMainWindow() {
   //build menu from template
   var mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
   //Insert menu
-  Mwin.setMenu(mainMenu);
+  //Mwin.setMenu(mainMenu);
+  Menu.setApplicationMenu(mainMenu);
 }
 
 function createWindow(pathHtml) {
@@ -58,7 +58,7 @@ function createWindow(pathHtml) {
 
 
     // Remove menu bar
-    win.setMenu(null)
+    //win.setMenu(null)
   }
   else {
     console.log('Another window is already open.')
@@ -78,16 +78,19 @@ app.whenReady().then(() => {
 
     if (BrowserWindow.getAllWindows().length === 0) createMainWindow()
   })
-
-  mainController = new mainControllerclass.MainController();
-  var conf = mainController.getConfigurator();
+  tablist = [];
+  filterlist = [];
+  configurator = new configuratorclass.Configurator(tablist, filterlist, 'Voices That Count');
+  console.log(configurator);
 })
 
-// Get form variable
-ipcMain.on('addTabIpc', function (event, item) {
-  console.log(item);
-  Mwin.webContents.send('addTabIpc', item);
+// Catch tab:add
+ipcMain.on('tab:add', function(e, tab){
+  Mwin.webContents.send('tab:add', tab);
   win.close();
+  configurator.addTab(tab);
+  console.log(configurator);
+  configurator.createXML();
 });
 
 // Create menu template for windows/linux
@@ -403,9 +406,6 @@ if (process.env.NODE_ENV !== 'production') {
     ]
   });
 }
-
-
-
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
