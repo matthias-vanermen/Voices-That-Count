@@ -7,6 +7,7 @@ const path = require('path')
 const fs = require('fs');
 const { create } = require('xmlbuilder2');
 const mainControllerKlasse = require('./mainController')
+var mainController;
 
 function createMainWindow () {
 	// Create the main browser window.
@@ -57,9 +58,9 @@ app.whenReady().then(() => {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createMainWindow()
   })
-  var mainController = new mainControllerKlasse.MainController();
+  mainController = new mainControllerKlasse.MainController();
   var conf = mainController.getConfigurator();
-  console.log(conf)
+  console.log(conf);
 })
 
 // Create menu template for windows/linux
@@ -361,6 +362,8 @@ if(process.env.NODE_ENV !== 'production'){
     ]
   });
 }
+
+module.exports = { mainController };
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
