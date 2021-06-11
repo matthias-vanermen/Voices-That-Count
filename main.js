@@ -3,7 +3,7 @@ const { createPublicKey } = require('crypto')
 const { app, BrowserWindow, Menu, Accelerator, ipcMain } = require('electron')
 const path = require('path')
 const fs = require('fs');
-const { create } = require('xmlbuilder2');
+const builder = require("xmlbuilder");
 const mainControllerclass = require('./mainController')
 var mainController;
 
