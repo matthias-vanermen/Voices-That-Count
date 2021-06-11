@@ -1,4 +1,6 @@
-class MultiplechoiceBarchart extends Chart {
+const chart = require("../chart")
+
+class MultipletopicBarchart extends chart.Chart {
   constructor(
     row,
     column,
@@ -114,3 +116,5 @@ class MultiplechoiceBarchart extends Chart {
         */
   }
 }
+
+module.exports = {MultipletopicBarchart};

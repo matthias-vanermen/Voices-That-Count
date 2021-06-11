@@ -1,4 +1,6 @@
-class SimplebarChart extends Chart {
+const chart = require("../chart")
+
+class SimplebarChart extends chart.Chart {
   constructor(
     row,
     column,
@@ -110,3 +112,5 @@ class SimplebarChart extends Chart {
     // XML-methode van Wout.
   }
 }
+
+module.exports = {SimplebarChart};
