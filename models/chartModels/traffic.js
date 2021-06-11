@@ -1,4 +1,6 @@
-class TraffiChart extends Chart {
+const chart = require("../chart");
+
+class TraffiChart extends chart.Chart {
   constructor(
     row,
     column,
@@ -86,3 +88,5 @@ class TraffiChart extends Chart {
     //wordt opgeroepen in elke chart-klasse.
   }
 }
+
+module.exports = { TraffiChart };

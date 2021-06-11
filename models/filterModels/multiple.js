@@ -7,8 +7,7 @@ class MultiFilter {
       icon1,
       icon2,
       all1,
-      all2,
-      itemList
+      all2
     ) {
       this.name1 = name1;
       this.name2 = name2;
@@ -82,3 +81,4 @@ class MultiFilter {
     }
   }
   
+  module.exports = {MultiFilter}

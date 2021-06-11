@@ -1,3 +1,5 @@
+const chart = require("../chart");
+
 class Triad extends Chart {
   constructor(
     row,
@@ -110,3 +112,5 @@ class Triad extends Chart {
       */
   }
 }
+
+module.exports = { Triad };

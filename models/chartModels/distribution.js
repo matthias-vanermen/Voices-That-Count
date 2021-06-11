@@ -1,4 +1,6 @@
-class DistributionChart extends Chart {
+const chart = require("../chart");
+
+class DistributionChart extends chart.Chart {
   constructor(
     row,
     column,
@@ -84,3 +86,5 @@ class DistributionChart extends Chart {
     */
   }
 }
+
+module.exports = { DistributionChart };

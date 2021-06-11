@@ -48,3 +48,4 @@ class SimpleFilter {
     }
   }
   
+  module.exports = {SimpleFilter}
