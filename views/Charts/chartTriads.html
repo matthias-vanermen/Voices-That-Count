@@ -22,9 +22,9 @@
         <label for="colorIcon">Color of the icon (in hexadecimal):</label><br>
         <input type="text" id="colorIcon" name="colorIcon" value="0000ff"><br>
         <label for="datapointcount">If true, a few datapoints will be displayed as 'N = XXX':</label><br>
-        <input type="radio" id="datapointcount" name="datapointcount" value="datapointcount"><br>
+        <input type="checkbox" id="datapointcount" name="datapointcount" value="datapointcount"><br>
         <label for="selectioncount">If true, the selected amount datapoints will be displayed 'XXX (XX%)':</label><br>
-        <input type="radio" id="selectioncount" name="selectioncount" value="selectioncount"><br>
+        <input type="checkbox" id="selectioncount" name="selectioncount" value="selectioncount"><br>
         <label for="datafieldtop">Name of first colum of dataset:</label><br>
         <input type="text" id="datafieldtop" name="datafieldtop"><br>
         <label for="datafieldleft">Name of second colum of dataset:</label><br>
@@ -38,7 +38,7 @@
         <label for="labelright">Label shown at the bottom right of the graph:</label><br>
         <input type="text" id="labelright" name="labelright"><br>
         <label for="grid">Checked (raster shown), not checked (raster hidden):</label><br>
-        <input type="radio" id="grid" name="grid" value="grid"><br>
+        <input type="checkbox" id="grid" name="grid" value="grid"><br>
 
         <br><br>
         <button onclick="makeTriadsGraph()">Make graph</button>
