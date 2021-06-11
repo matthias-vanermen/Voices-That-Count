@@ -65,6 +65,21 @@ class Dyad extends chart.Chart {
 
   createChartXML() {
     // XML-methode van Wout.
+    root2 = root.ele("dyad")
+    .att('row', this.row)
+    .att('rowspan', this.rowspan)
+    .att('column', this.column)
+    .att('columnspan', this.rowspan)
+    .att('icon', this.icon)
+    .att('title', this.title)
+    .att('labelright', this.getLabelright())
+    .att('labelleft', this.getLabelleft())
+    .att('datafield', this.getDatafield())
+    .att('listcounter', this.getListcounter())
+    .att('datapointcount', this.getDatapointcount())
+    .att('selectioncount', this.getSelectioncount())
+    //geen data voor
+    .att('color', "#FFA522");
     /*  
       <dyad row="1" column="1" columnspan="2" title="Naam van de dyad" icon="home" datapointcount="true" 
         selectioncount="true" color="#499894" datafield="Kolomnaamuit de CSV" labelleft="Label left" labelright="Label right">

@@ -57,8 +57,18 @@ class PolarChart extends chart.Chart {
     }
   }
 
-  createChartXML() {
-    // XML-methode van Wout.
+  createChartXML(root) {
+    root2 = root.ele("polarbarchart")
+      .att('row', this.row)
+      .att('rowspan', this.rowspan)
+      .att('column', this.column)
+      .att('columnspan', this.rowspan)
+      .att('title', this.title)
+      .att('icon', this.icon)
+      .att('groupby', this.getGroupby())
+      for (l = 0; l < getItems().length; l++) {
+        root2.ele('item', {columnname: this.getItems[l][0], label: this.getItems[l][1], color: this.getItems[l][2]}).up();
+      }
   }
 }
 

@@ -106,6 +106,24 @@ class MultipletopicBarchart extends chart.Chart {
 
   createChartXML() {
     // XML-methode van Wout.
+
+    root2 = root.ele("multiplechoicebarchart")
+    .att('row', this.row)
+    .att('rowspan', this.rowspan)
+    .att('column', this.column)
+    .att('columnspan', this.rowspan)
+    .att('title', this.title)
+    .att('icon', this.icon)
+    .att('percentage', this.getPercentage())
+    .att('orientation', this.getOrientation())
+    .att('color', this.getColor())
+    .att('leftmargin', this.getLeftmargin())
+    .att('rightmargin', this.getRightmargin())
+    for (l = 0; l < getItems().length; l++) {
+      root2.ele('multipletopicitem', {columnname: this.getItems[l][0], label: this.getItems[l][1], color: this.getItems[l][2]}).up()
+    }
+
+
     /*
 
         <multiplechoicebarchart row="1" column="1" columnspan="2" title="Verhalen" icon="icons" percentage="true" orientation="horizontal" 
