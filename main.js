@@ -6,7 +6,7 @@ const { app, BrowserWindow, Menu, Accelerator } = require('electron')
 const path = require('path')
 const fs = require('fs');
 const { create } = require('xmlbuilder2');
-const configurator = require('./mainController')
+const mainControllerKlasse = require('./mainController')
 
 function createMainWindow () {
 	// Create the main browser window.
@@ -57,7 +57,8 @@ app.whenReady().then(() => {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createMainWindow()
   })
-  var conf = configurator.makeConfigurator();
+  var mainController = new mainControllerKlasse.MainController();
+  var conf = mainController.getConfigurator();
   console.log(conf)
 })
 
