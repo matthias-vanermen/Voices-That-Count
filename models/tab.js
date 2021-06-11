@@ -49,6 +49,10 @@ class Tab {
   }
 }
 
+<<<<<<< HEAD
 module.exports = { Tab };
 
+=======
+module.exports = {Tab}
+>>>>>>> 6a9f3b3286e9673eac5e3694d5ccb022ca1a4089
 // Use this class: let myTab = new Tab([], "Title", "#eeeeee", "coffee");

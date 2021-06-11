@@ -1,4 +1,6 @@
-class Triad extends Chart {
+const chart = require("../chart");
+
+class Triad extends chart.Chart {
   constructor(
     row,
     column,
@@ -83,9 +85,27 @@ class Triad extends Chart {
 
   createChartXML() {
     // XML-methode van Wout.
+    root2 = root.ele("density")
+    .att('row', this.row)
+    .att('rowspan', this.rowspan)
+    .att('column', this.column)
+    .att('columnspan', this.rowspan)
+    .att('icon', this.icon)
+    .att('title', this.title)
+    .att('labelx', this.getLabelx())
+    .att('labely', this.getLabely())
+    .att('datafieldx', this.getDatafieldx())
+    .att('datafieldy', this.getDatafieldy())
+    .att('datapointcount', this.getDatapointcount())
+    .att('selectioncount', this.getSelectioncount())
+    //geen data voor
+    .att('color', "#499894");
+
     /*  
       <density row="3" column="3" columnspan="2" title="Density plot demo" icon="home" datafieldx="L3GeluidLawaai-X" labelx="Geluid &amp; Lawaai" datafieldy="L3Luchtkwaliteit-X" 
       labely="Luchtkwaliteit" color="#499894" colorscale="YlGnBu" datapointcount="true" selectioncount="true"></density>
       */
   }
 }
+
+module.exports = { Triad };

@@ -1,3 +1,5 @@
+const chart = require("../chart");
+
 class Triad extends Chart {
   constructor(
     row,
@@ -103,6 +105,26 @@ class Triad extends Chart {
 
   createChartXML() {
     // XML-methode van Wout.
+    root2 = root.ele("triad")
+    .att('row', this.row)
+    .att('rowspan', this.rowspan)
+    .att('column', this.column)
+    .att('columnspan', this.rowspan)
+    .att('icon', this.icon)
+    .att('title', this.title)
+    .att('datafieldright', this.getDatafieldright())
+    .att('datafieldleft', this.getDatafieldleft())
+    .att('datafieldtop', this.getDatafieldtop())
+    .att('datapointcount', this.getDatapointcount())
+    .att('selectioncount', this.getSelectioncount())
+    .att('labelright', this.getLabelright())
+    .att('labelleft', this.getLabelleft())
+    .att('labeltop', this.getLabeltop())
+    //geen data voor
+    .att('color', "#499894");
+
+
+
     /*  
       <triad row="2" column="1" columnspan="2" title="Naam van de triad" icon="home" datapointcount="true" selectioncount="true" 
       color="#499894" datafieldtop="Naam CSV-kolom 1ste veld" datafieldleft="Naam CSV-kolom 2de veld" datafieldright="Naam CSV-kolom 3de veld" labeltop="Label top" 
@@ -110,3 +132,5 @@ class Triad extends Chart {
       */
   }
 }
+
+module.exports = { Triad };

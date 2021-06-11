@@ -1,4 +1,6 @@
-class TraffiChart extends Chart {
+const chart = require("../chart");
+
+class TraffiChart extends chart.Chart {
   constructor(
     row,
     column,
@@ -83,6 +85,22 @@ class TraffiChart extends Chart {
   }
 
   createChartXML() {
+    root2 = root.ele("traffic")
+    .att('row', this.row)
+    .att('rowspan', this.rowspan)
+    .att('column', this.column)
+    .att('columnspan', this.rowspan)
+    .att('title', this.title)
+    .att('icon', this.icon)
+    .att('color', this.getColor())
+    .att('city', this.getCity())
+    .att('street', this.getStreet())
+    .att('pae', this.getPae())
+    .att('modelsplitmotorized', this.getModelsplitmotorized())
+    .att('roadcategory', this.getRoadcategory())
+    .att('nodata', this.getNodata())
     //wordt opgeroepen in elke chart-klasse.
   }
 }
+
+module.exports = { TraffiChart };

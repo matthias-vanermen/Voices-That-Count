@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Bar</title>
+    <title>Polar bar</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
     <form action="">
         <label for="row">Give the number of rows the graph has to be:</label><br>
         <input type="text" id="row" name="row"><br> 
+        <label for="rowspan">Give the number of row spans the graph has to be:</label><br>
+        <input type="text" id="rowspan" name="rowspan"><br> 
         <label for="column">Give the number of columns the graph has to be:</label><br>
         <input type="text" id="column" name="column"><br>
         <label for="columnspan">Give the number of column spans the graph has to be:</label> <br>
@@ -21,31 +23,22 @@
         <input type="text" id="icon" name="icon"><br>
         <label for="colorIcon">Color of the icon (in hexadecimal):</label><br>
         <input type="text" id="colorIcon" name="colorIcon" value="0000ff"><br>
+        <label for="groupby">Give the parameters the chart has to be grouped by:</label><br>
+        <input type="text" id="groupby" name="groupby"><br>
         
-        <label for="percentage">True (checked), false (not checked):</label><br>
-        <input type="checkbox" id="percentage" name="percentage" value="percentage"><br>
-        <label for="datafield">Name of colum in dataset:</label><br>
-        <input type="text" id="datafield" name="datafield"><br>
-        <label for="orientation">Horizontal (checked), Vertical (not checked): </label><br>
-        <input type="checkbox" id="orientation" name="orientation" value="orientation"><br>
-        <label for="leftmargin">Extra space on the left side of the horizontal text bar:</label><br>
-        <input type="text" id="leftmargin" name="leftmargin"><br>
-        <label for="rightmargin">Extra space on the right side of the horizontal text bar:</label><br>
-        <input type="text" id="rightmargin" name="rightmargin"><br>
-        <label for="filtername">Name of the corresponding filter:</label>
-        <input type="text" id="filtername" name="filtername"><br>
-    
         <br><br><br>
-            <div id="itemSimplebar">
+            <div id="itemPolarbar">
                 <label for="item1"></label>
-                <label for="value">Give the value of the data file:</label><br>
-                <input type="text" id="value" name="value"><br>
+                <label for="columname">Give the name of the colum from the data file:</label><br>
+                <input type="text" id="columname" name="columname"><br>
                 <label for="label">Give the name of the value displayed on the dashboard:</label><br>
                 <input type="text" id="label" name="label"><br>
+                <label for="color">Give the color for the used value:</label><br>
+                <input type="text" id="color" name="color"><br>
                 <button onclick="addItem()">Make item</button>
             </div>
         <br><br>
-        <button onclick="makeSimplebarGraph()">Make graph</button>
+        <button onclick="makePolarbarGraph()">Make graph</button>
     </form>
 </body>
 </html>
