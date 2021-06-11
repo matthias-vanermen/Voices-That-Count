@@ -8,10 +8,21 @@
 </head>
 <body>
     <form action="">
-        <label for="test">Word Cloud:</label><br>
-        <input type="text" id="test" name="test"><br>
-        <label for="test2">Test2:</label><br>
-        <input type="radio" id="test2" name="test2" value="test2">
+        <label for="row">Give the number of rows the graph has to be:</label><br>
+        <input type="text" id="row" name="row"><br> 
+        <label for="column">Give the number of columns the graph has to be:</label><br>
+        <input type="text" id="column" name="column"><br>
+        <label for="columnspan">Give the number of column spans the graph has to be:</label> <br>
+        <input type="text" id="columnspan" name="columnspan"><br>
+        <label for="datafield">Name of colum in dataset:</label><br>
+        <input type="text" id="datafield" name="datafield"><br>
+        <label for="wordamount">Give the amount of words:</label><br>
+        <input type="text" id="wordamount" name="wordamount"><br>
+        <label for="fontsize">Give the fontsize:</label><br>
+        <input type="text" id="fontsize" name="fontsize"><br>
+
+        <br><br>
+        <button onclick="makeWordcloudGraph()">Make graph</button>
     </form>
 </body>
 </html>
