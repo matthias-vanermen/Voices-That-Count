@@ -1,4 +1,6 @@
-class DistributionChart extends Chart {
+const chart = require("../chart");
+
+class PolarChart extends chart.Chart {
   constructor(
     row,
     column,
@@ -59,3 +61,5 @@ class DistributionChart extends Chart {
     // XML-methode van Wout.
   }
 }
+
+module.exports = { PolarChart };

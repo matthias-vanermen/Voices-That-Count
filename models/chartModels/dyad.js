@@ -1,4 +1,6 @@
-class Dyad extends Chart {
+const chart = require("../chart");
+
+class Dyad extends chart.Chart {
   constructor(
     row,
     column,
@@ -70,3 +72,5 @@ class Dyad extends Chart {
       */
   }
 }
+
+module.exports = { Dyad };

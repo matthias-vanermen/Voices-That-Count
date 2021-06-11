@@ -1,4 +1,4 @@
-const chart = require("../chart")
+const chart = require("../chart");
 
 class MultipletopicBarchart extends chart.Chart {
   constructor(
@@ -117,4 +117,4 @@ class MultipletopicBarchart extends chart.Chart {
   }
 }
 
-module.exports = {MultipletopicBarchart};
+module.exports = { MultipletopicBarchart };
