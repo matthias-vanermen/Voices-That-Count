@@ -4,7 +4,7 @@ const { createPublicKey } = require("crypto");
 const { app, BrowserWindow, Menu, Accelerator } = require("electron");
 const path = require("path");
 const fs = require("fs");
-const { create } = require("xmlbuilder2");
+const builder = require("xmlbuilder");
 const mainControllerClass = require("./mainController");
 var mainController;
 
