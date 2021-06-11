@@ -67,8 +67,11 @@ class Section {
     }
   }
 
-  createSectionXML() {
+  createSectionXML(root) {
     //methode voor XML nog afwachten op Wout
+    for (k = 0; k < this.getCharts().length; k++) {
+      root2 = root.ele(this.getCharts()[k][0])
+    }
   }
 }
 
