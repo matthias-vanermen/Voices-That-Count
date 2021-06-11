@@ -53,6 +53,6 @@ class Chart {
     return this.icon;
   }
 }
-
+module.exports = {Chart};
 // Use this class: let myChart = new Chart(0, 0, 1, 1, "Title", "coffee");
 // Chart heeft vele onderliggende child-classes; deze classes zullen "inheritten" van de parent-class: Chart
