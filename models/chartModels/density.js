@@ -83,7 +83,7 @@ class Triad extends chart.Chart {
     return this.colorscale;
   }
 
-  createChartXML() {
+  createChartXML(root) {
     // XML-methode van Wout.
     root2 = root.ele("density")
     .att('row', this.row)

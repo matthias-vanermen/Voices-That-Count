@@ -46,7 +46,7 @@ class WordcloudChart extends chart.Chart {
     return this.fontsize;
   }
 
-  createChartXML() {
+  createChartXML(root) {
     // XML-methode van Wout.
     root2 = root.ele("distributionchart")
       .att('row', this.row)

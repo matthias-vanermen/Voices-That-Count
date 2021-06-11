@@ -103,7 +103,7 @@ class Triad extends Chart {
     return this.grid;
   }
 
-  createChartXML() {
+  createChartXML(root) {
     // XML-methode van Wout.
     root2 = root.ele("triad")
     .att('row', this.row)

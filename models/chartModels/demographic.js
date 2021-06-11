@@ -46,7 +46,7 @@ class DemographicChart extends chart.Chart {
     }
   }
 
-  createChartXML() {
+  createChartXML(root) {
     // XML-methode van Wout.
     root2 = root.ele("demographic")
     .att('row', this.row)

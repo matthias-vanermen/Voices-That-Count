@@ -63,7 +63,7 @@ class Dyad extends chart.Chart {
     return this.labelright;
   }
 
-  createChartXML() {
+  createChartXML(root) {
     // XML-methode van Wout.
     root2 = root.ele("dyad")
     .att('row', this.row)

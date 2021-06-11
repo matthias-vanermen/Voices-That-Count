@@ -75,8 +75,17 @@ class MultiFilter {
       return this.all2;
     }
   
-    createChartXML() {
-      // XML-methode van Wout.
+    createChartXML(root) {
+       // XML-methode van Wout.
+      root.ele("multifilter")
+      .att('icon1', this.getIcon1())
+      .att('name1', this.getName1())
+      .att('colmnname1', this.getColumnname1())
+      .att('all1', this.getAll1())
+      .att('icon2', this.getIcon2())
+      .att('name2', this.getName2())
+      .att('columnname2', this.getColumnname2())
+      .att('all2', this.getAll2())
       
     }
   }
